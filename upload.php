@@ -34,7 +34,6 @@ if (!empty($_FILES['img']['tmp_name'])) {
         "type" => $_POST['type'],
         "note" => $_POST['note']
     ];
-    print_r($row);
     save("upload", $row);
 }
 
@@ -85,9 +84,10 @@ echo "<td>縮圖</td>";
 echo "<td>檔案名稱</td>";
 echo "<td>檔案類型</td>";
 echo "<td>檔案說明</td>";
+echo "<td>下載</td>";
 foreach($rows as $row){
     echo "<tr>";
-    if($row['type']==['圖檔']){
+    if($row['type']=='圖檔'){
         echo "<td><img src='{$row['path']}' style='width:100px'></td>";
         
     }else{
@@ -96,6 +96,7 @@ foreach($rows as $row){
     echo "<td>{$row['name']}</td>";
     echo "<td>{$row['type']}</td>";
     echo "<td>{$row['note']}</td>";
+    echo "<td><a href='{$row['path']}' download>下載</a></td>";
     
 
     echo"</tr>";
