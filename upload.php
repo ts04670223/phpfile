@@ -51,10 +51,15 @@ if (!empty($_FILES['img']['tmp_name'])) {
         table{
             border:3px solid black;
             border-collapse: collapse;
+            margin: auto;
         }
         td{
             border:1px solid #555;
             padding: 5px;
+        }
+        form{
+            margin: auto;
+            width: 500px;
         }
     </style>
 </head>
@@ -70,7 +75,7 @@ if (!empty($_FILES['img']['tmp_name'])) {
                 <option value="文件">文件</option>
                 <option value="其他">其他</option>
             </select></div>
-        <input type="submit" value="上傳">
+        <a href="manage.php"><input type="submit" value="上傳"></a>
     </form>
 
 
@@ -85,6 +90,7 @@ echo "<td>檔案名稱</td>";
 echo "<td>檔案類型</td>";
 echo "<td>檔案說明</td>";
 echo "<td>下載</td>";
+echo "<td>編輯</td>";
 foreach($rows as $row){
     echo "<tr>";
     if($row['type']=='圖檔'){
@@ -97,6 +103,7 @@ foreach($rows as $row){
     echo "<td>{$row['type']}</td>";
     echo "<td>{$row['note']}</td>";
     echo "<td><a href='{$row['path']}' download>下載</a></td>";
+    echo "<td><a class='primary' href='edit.php?id={$row['id']}' >編輯</a></td>";
     
 
     echo"</tr>";

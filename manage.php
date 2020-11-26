@@ -18,6 +18,7 @@ include_once "base.php";
     <link rel="stylesheet" href="style.css">
     <style>
         table{
+            margin: auto;
             border:3px solid black;
             border-collapse: collapse;
         }
@@ -44,11 +45,16 @@ include_once "base.php";
             color:#fff1f3;
             box-shadow: 1px 1px 4px grey;
         }
+        .top{
+        width: 100px;
+        margin: auto;
+        }
     </style>
 </head>
 <body>
 <h1 class="header">檔案管理練習</h1>
 <!----建立上傳檔案表單及相關的檔案資訊存入資料表機制----->
+<a class="top danger" href="upload.php">檔案上傳</a>
 <?php
 $rows=all('upload');
 echo "<table>";
@@ -71,7 +77,7 @@ foreach($rows as $row){
     echo "<td>{$row['note']}</td>";
     echo "<td><a href='{$row['path']}' download>下載</a></td>";
     echo "<td>";
-    echo "<a class='primary' href='edit.php?id={$row['id']}' download>編輯</a>";
+    echo "<a class='primary' href='edit.php?id={$row['id']}' >編輯</a>";
     echo "<a class='danger' href='del.php?id={$row['id']}'>刪除</a>";
     echo "</td>";
     
