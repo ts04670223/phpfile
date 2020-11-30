@@ -33,7 +33,7 @@ if (!empty($_FILES['txt']['tmp_name'])) {
         }
         $num++;
     }
-
+    fclose($file);
 
 }
 
